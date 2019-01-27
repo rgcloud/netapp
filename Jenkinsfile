@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("rgcloud/webapp")
+        app = docker.build("rgcloud/web1")
     }
 
     stage('Test image') {
