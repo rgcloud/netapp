@@ -1,12 +1,33 @@
-// code placeholder
-stage('Push image') {
-/* Finally, we'll push the image with two tags:
-* First, the incremental build number from Jenkins
-* Second, the 'latest' tag. */
-withCredentials([usernamePassword( credentialsId: 'docker-hub-credentials', usernameVariable: 'rgcloud', passwordVariable: 'solankar1234')]) {
+node {
+    def app
 
-docker.withRegistry('', 'docker-hub-credentials') {
-sh "docker login -u ${USERNAME} -p ${PASSWORD}"
-myImage.push("${env.BUILD_NUMBER}")
-myImage.push("latest")
+    stage('Clone repository') {
+        /* Cloning the Repository to our Workspace */
+
+        checkout scm
+    }
+
+    stage('Build image') {
+        /* This builds the actual image */
+
+        app = docker.build("rgcloud/webapp")
+    }
+
+    stage('Test image') {
+        
+        app.inside {
+            echo "Tests passed"
+        }
+    }
+
+    stage('Push image') {
+        /* 
+			You would need to first register with DockerHub before you can push images to your account
+		*/
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+            app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
+            } 
+                echo "Trying to Push Docker Build to DockerHub"
+    }
 }
