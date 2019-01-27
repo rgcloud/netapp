@@ -31,3 +31,8 @@ node {
                 echo "Trying to Push Docker Build to DockerHub"
     }
 }
+stage('Push to Docker Registry'){
+    withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'rgcloud', passwordVariable: 'solankar1234')]) {
+        pushToImage(CONTAINER_NAME, CONTAINER_TAG, USERNAME, PASSWORD)
+    }
+}
