@@ -1,7 +1,9 @@
-FROM httpd:2.4
+From tomcat:8.5
 
-MAINTAINER sgcloud
+MAINTAINER vgtech
 
-COPY index.html /usr/local/apache2/htdocs/
+LABEL version=v2
 
-EXPOSE 80
+COPY dakmanagement /usr/local/tomcat/webapps/ROOT
+
+EXPOSE 8080
