@@ -18,6 +18,6 @@ RUN cp -r /usr/local/tomcat/dakmanagement/dakmanagement /usr/local/tomcat/webapp
 
 RUN ls
 
-RUN ls /usr/local/tomcat/webapps/ROOT/
+RUN ls /usr/local/tomcat/webapps/
 
 EXPOSE 8080
