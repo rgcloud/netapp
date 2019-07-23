@@ -2,9 +2,9 @@ From tomcat:8.5
 
 MAINTAINER vgtech
 
-LABEL version=v1
+LABEL version=v2
 
-RUN apt-get update && apt-get install -y unzip tar
+RUN apt-get update && apt-get install -y unzip
 
 RUN rm -f /usr/local/tomcat/dakmanagement
 
@@ -15,8 +15,6 @@ RUN cd /usr/local/tomcat/webapps/ROOT/
 RUN unzip -n /usr/local/tomcat/webapps/ROOT/dakmanagement.zip
 
 RUN ls
-
-RUN cp -r /usr/local/tomcat/dakmanagement /usr/local/tomcat/webapps/ROOT/
 
 RUN ls /usr/local/tomcat/webapps/ROOT/
 
