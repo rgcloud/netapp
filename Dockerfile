@@ -14,8 +14,6 @@ RUN cd /usr/local/tomcat/webapps/ROOT/
 
 RUN unzip -n /usr/local/tomcat/webapps/ROOT/dakmanagement.zip
 
-RUN cp -r /usr/local/tomcat/dakmanagement/dakmanagement /usr/local/tomcat/webapps/
-
 RUN ls
 
 RUN ls /usr/local/tomcat/webapps/
