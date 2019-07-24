@@ -14,8 +14,8 @@ RUN cd /usr/local/tomcat/webapps/ROOT/
 
 RUN unzip -n /usr/local/tomcat/webapps/ROOT/dakmanagement.zip
 
-RUN ls
+RUN cp -r /usr/local/tomcat/dakmanagement /usr/local/tomcat/webapps/ROOT/
 
-RUN ls /usr/local/tomcat/webapps/
+RUN ls /usr/local/tomcat/webapps/ROOT/
 
 EXPOSE 8080
