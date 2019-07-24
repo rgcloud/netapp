@@ -2,7 +2,7 @@ From tomcat:8.5
 
 MAINTAINER vgtech
 
-LABEL version=v1
+LABEL version=$1
 
 RUN apt-get update && apt-get install -y unzip
 
